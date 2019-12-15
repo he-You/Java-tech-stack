@@ -6,9 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="MySQL" />
+        <module name="Spring" />
         <module name="Java" />
         <module name="Redis" />
+        <module name="DataStructure" />
+        <module name="MySQL" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

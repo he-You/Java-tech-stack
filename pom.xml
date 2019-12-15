@@ -10,9 +10,10 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>Java</module>
-        <module>SpringBoot</module>
         <module>Redis</module>
         <module>MySQL</module>
+        <module>Spring</module>
+        <module>DataStructure</module>
     </modules>
 
 
