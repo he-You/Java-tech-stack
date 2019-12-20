@@ -41,7 +41,7 @@
 
 
 2.特殊的数据结构:
-- HyperLogLog、Geo、Pub/Sub
+- HyperLogLog(用于计数)、Geo(支持存储地理位置)、Pub/Sub
 - Redis module:BloomFilter，RedisSearch，Redis-ML
 
 

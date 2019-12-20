@@ -9,14 +9,10 @@
         <module name="Spring" />
         <module name="Java" />
         <module name="Redis" />
-        <module name="MySQL" />
         <module name="DataStructure" />
+        <module name="MySQL" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SpringBoot" target="1.5" />
-      <module name="SpringCloud" target="1.5" />
-      <module name="SpringSecurity" target="1.5" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>
