@@ -9,8 +9,8 @@
         <module name="Spring" />
         <module name="Java" />
         <module name="Redis" />
-        <module name="DataStructure" />
         <module name="MySQL" />
+        <module name="DataStructure" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
