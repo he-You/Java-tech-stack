@@ -34,6 +34,5 @@ public class TestReflect {
         field.set(robot,"HeYou");
         method1.invoke(robot,"Welcome");
 
-
     }
 }
