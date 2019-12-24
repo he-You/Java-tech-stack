@@ -4,7 +4,7 @@ import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 简要说明:
+ * 简要说明:自定义注解,被注解的方法执行获取锁的功能
  *
  * @author heyou
  * @date 2019-12-24 14:20
