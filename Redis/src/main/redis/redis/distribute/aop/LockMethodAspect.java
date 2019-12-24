@@ -31,7 +31,7 @@ public class LockMethodAspect {
     private JedisUtil jedisUtil;
     private Logger logger = LoggerFactory.getLogger(LockMethodAspect.class);
 
-    @Around("@annotation(com.redis.lock.annotation.RedisLock)")
+    @Around("@annotation(redis.distribute.annotation.RedisLock)")
     public Object around(ProceedingJoinPoint joinPoint) {
         Jedis jedis = jedisUtil.getJedis();
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
