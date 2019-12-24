@@ -21,6 +21,7 @@
 - 基于数据库
 - 基于Redis
 - 基于zookeeper
+
 本篇文章主要介绍基于Redis如何实现分布式锁
 
 Redis的分布式锁实现
