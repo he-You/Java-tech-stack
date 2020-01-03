@@ -43,7 +43,7 @@ The second word of every object header. Points to another object (a metaobject) 
 - unused 1bit
 - age 4bit(对象在from和to区进行复制操作(默认)15次仍然存活会放逐到老年代,为什么是15次,原因是4bit的二进制最大为1111,即15)
 - biased_lock 1bit (偏向信息)
-- lock 2bit (锁信息)
+- lock 2bit (锁状态信息)
 
 其中:后3个bit(biased_lock+lock)用来区分对象的不同状态
 
