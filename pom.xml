@@ -24,6 +24,7 @@
         <module>MySQL</module>
         <module>Spring</module>
         <module>DataStructure</module>
+        <module>job-interview</module>
     </modules>
 
 

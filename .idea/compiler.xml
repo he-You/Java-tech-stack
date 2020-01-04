@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Spring" />
-        <module name="Java" />
-        <module name="Redis" />
         <module name="DataStructure" />
+        <module name="Spring" />
         <module name="MySQL" />
+        <module name="job-interview" />
+        <module name="Redis" />
+        <module name="Java" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
@@ -22,6 +23,7 @@
       <module name="MySQL" options="-parameters" />
       <module name="Redis" options="-parameters" />
       <module name="Spring" options="-parameters" />
+      <module name="job-interview" options="-parameters" />
     </option>
   </component>
 </project>
