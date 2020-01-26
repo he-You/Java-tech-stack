@@ -15,15 +15,15 @@ public class SimpleStream {
      */
     public static void main(String[] args) {
         List<Dish> menu = Arrays.asList(
-                new Dish("pork",false,800),
-                new Dish("beef",false,700),
-                new Dish("chicken",false,400),
-                new Dish("french fries",true,530),
-                new Dish("rice",false,350),
-                new Dish("season fruit",true,120),
-                new Dish("pizza",true,550),
-                new Dish("prawns",false,300),
-                new Dish("salmon",false,450)
+                new Dish("pork",false,800,Dish.Type.MEAT),
+                new Dish("beef",false,700,Dish.Type.MEAT),
+                new Dish("chicken",false,400,Dish.Type.MEAT),
+                new Dish("french fries",true,530,Dish.Type.OTHER),
+                new Dish("rice",false,350,Dish.Type.OTHER),
+                new Dish("season fruit",true,120,Dish.Type.OTHER),
+                new Dish("pizza",true,550,Dish.Type.OTHER),
+                new Dish("prawns",false,300,Dish.Type.FISH),
+                new Dish("salmon",false,450,Dish.Type.FISH)
         );
         List<String> dishNameByCollections = getDishNameByCollections(menu);
         List<String> dishNameByStream = getDishNameByStream(menu);
