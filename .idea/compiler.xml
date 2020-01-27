@@ -8,11 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Spring" />
-        <module name="Java" />
-        <module name="job-interview" />
-        <module name="Redis" />
-        <module name="DataStructure" />
         <module name="MySQL" />
+        <module name="Java" />
+        <module name="Redis" />
+        <module name="job-interview" />
+        <module name="DataStructure" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
