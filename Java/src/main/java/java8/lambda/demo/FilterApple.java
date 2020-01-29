@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author heyou
  * @time 2020/1/29 10:52
- * @description 根据条件筛选对应的Apple
+ * @description 根据条件筛选对应的Apple;使用lambda表达式可以节省代码量以及内存空间
  */
 public class FilterApple {
     /**如果接口中只有一个抽象方法,是可以标注成'@FunctionalInterface',代表该接口可以使用lambda表达式进行操作的*/
