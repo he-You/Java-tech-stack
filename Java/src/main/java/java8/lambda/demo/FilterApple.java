@@ -88,7 +88,7 @@ public class FilterApple {
         System.out.println(redResult);
 
         /*通过lambda表达式*/
-        List<Apple> lambdaResult = findApple(appleList, apple -> apple.getColor().equals("green"));
+        List<Apple> lambdaResult = findApple(appleList,apple -> apple.getColor().equals("green"));
         //上述lambda可以简化成
         List<Apple> lambdaResult2 = findApple(appleList,apple -> apple.getColor().equals("green"));
         System.out.println(lambdaResult);
