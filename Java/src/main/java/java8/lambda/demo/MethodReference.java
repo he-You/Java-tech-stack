@@ -1,6 +1,7 @@
 package java8.lambda.demo;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -28,6 +29,7 @@ public class MethodReference {
         );
         System.out.println(list);
         list.sort((a1,a2)->a1.getColor().compareTo(a2.getColor()));
+        list.sort(Comparator.comparing(Apple::getColor));
         System.out.println(list);
         list.forEach(System.out::println);
 
