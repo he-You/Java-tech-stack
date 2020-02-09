@@ -29,6 +29,15 @@ public class SimpleStream {
         List<String> dishNameByStream = getDishNameByStream(menu);
         System.out.println(dishNameByCollections);
         System.out.println(dishNameByStream);
+        List<String> result = menu.stream().filter(d->{
+            System.out.println("filtering->"+d.getName());
+            return d.getCalories()>300;
+        }).map(d->{
+            System.out.println("map->"+d.getName());
+            return d.getName();
+        }).limit(3).collect(toList());
+        System.out.println("========================");
+        System.out.println(result);
     }
     /**传统方法:通过Collections容器进行操作*/
     private static List<String> getDishNameByCollections(List<Dish> menu){
