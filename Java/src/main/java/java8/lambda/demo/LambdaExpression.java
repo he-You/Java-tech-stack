@@ -38,9 +38,9 @@ public class LambdaExpression {
 
         /*valid lambda*/
         /*Consumer:接收一个参数,不返回值*/
-        Consumer<String> stringConsumer = (String s)->s.length();
+        Consumer<String> stringConsumer = String::length;
         /*Function:接收一个参数,返回一个参数*/
-        Function<String, Integer> functionLambda = s -> s.length();
+        Function<String, Integer> functionLambda = String::length;
         /*Predicate:返回布尔值*/
         Predicate<Apple> p = a -> a.getColor().equals("green");
 
