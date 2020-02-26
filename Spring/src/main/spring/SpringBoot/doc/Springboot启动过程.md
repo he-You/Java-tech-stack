@@ -77,4 +77,18 @@ Spring Boot的判断方法之一是检查系统中是否存在的核心类。
 初始化完成后,进入run方法,run方法完成了所有Spring的整个启动过程：准备Environment——发布事件——创建上下文、bean——刷新上下文——结束，
 其中穿插了很多监听器的动作，并且很多逻辑都是靠各种监听器的实现类执行的，所以在分析run方法之前，先看下各种核心监听器、接口的作用。
 
+#### ConfigurableApplicationContext
+
+相对于只读的ApplicationContext而言，ConfigurableApplicationContext提供了配置上下文的接口，如设置Environment、监听器、切面类、关闭上下文的钩子等，
+还有刷新上下文的接口。默认是只读的接口，接口名前面加Configurable对应是一个提供可配置接口的新接口——在Spring很多配置相关的接口中都有这样的继承形式，
+例如ConfigurableEnvironment和Environment、ConfigurablePropertyResolver和PropertyResolver、ConfigurableBeanFactory和BeanFactory等等。
+继承的三个父类接口里，Closeable提供了关闭时资源释放的接口，Lifecycle是提供对生命周期控制的接口(start\stop)以及查询当前运行状态的接口，ApplicationContext则是配置上下文的中心配置接口，
+继承了其他很多配置接口，其本身提供查询诸如id、应用程序名等上下文档案信息的只读接口，以及构建自动装配bean的工厂（注释上官方说该接口提供的工厂是用于注册上下文外部的bean的，但调试发现和在程序内@Autowired获取到的工厂是同一个对象...）。
+简单写下ApplicationContext继承的父类接口。
+
+- EnvironmentCapable 提供Environment接口。
+- MessageSource 国际化资源接口。
+- ApplicationEventPublisher 事件发布器。
+- ResourcePatternResolver 资源加载器。
+- HierarchicalBeanFactory、ListableBeanFactory 这两个都继承了bean容器的根接口BeanFactory。
 
