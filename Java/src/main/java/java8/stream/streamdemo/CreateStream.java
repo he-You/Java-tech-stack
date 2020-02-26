@@ -16,6 +16,7 @@ import java.util.stream.Stream;
  *                              2.Vaues(of方法)
  *                              3.Arrays
  *                              4.File(文件资源获取流)
+ *                              5.Iterate
  */
 public class CreateStream {
     /**
