@@ -26,6 +26,7 @@
         <module>DataStructure</module>
         <module>job-interview</module>
         <module>ELK</module>
+        <module>Algorithm</module>
     </modules>
 
     <dependencies>
