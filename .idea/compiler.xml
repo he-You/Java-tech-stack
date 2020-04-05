@@ -10,6 +10,8 @@
         <module name="Spring" />
         <module name="MySQL" />
         <module name="Java" />
+        <module name="Algorithm" />
+        <module name="ELK" />
         <module name="Redis" />
         <module name="job-interview" />
         <module name="DataStructure" />
@@ -19,7 +21,9 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Algorithm" options="-parameters" />
       <module name="DataStructure" options="-parameters" />
+      <module name="ELK" options="-parameters" />
       <module name="Java" options="-parameters" />
       <module name="MySQL" options="-parameters" />
       <module name="Redis" options="-parameters" />
