@@ -14,6 +14,7 @@
         <module name="ELK" />
         <module name="Redis" />
         <module name="job-interview" />
+        <module name="MessageQuene" />
         <module name="DataStructure" />
       </profile>
     </annotationProcessing>
@@ -25,6 +26,7 @@
       <module name="DataStructure" options="-parameters" />
       <module name="ELK" options="-parameters" />
       <module name="Java" options="-parameters" />
+      <module name="MessageQuene" options="-parameters" />
       <module name="MySQL" options="-parameters" />
       <module name="Redis" options="-parameters" />
       <module name="Spring" options="-parameters" />

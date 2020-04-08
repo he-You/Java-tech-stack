@@ -27,6 +27,7 @@
         <module>job-interview</module>
         <module>ELK</module>
         <module>Algorithm</module>
+        <module>MessageQuene</module>
     </modules>
 
     <dependencies>
