@@ -31,6 +31,7 @@ public class CollectorsActions {
         testGroupingByFunction();
         testGroupingByFunctionAndCollector();
         testGroupingByFunctionAndSupplierAndCollector();
+        testSummarizingInt();
     }
 
     private static void testAveragingDouble(){
@@ -88,5 +89,12 @@ public class CollectorsActions {
                 .collect(Collectors.groupingBy(Dish::getType,TreeMap::new, Collectors.averagingInt(Dish::getCalories)));
         Optional.of(map.getClass()).ifPresent(System.out::println);
         Optional.of(map).ifPresent(System.out::println);
+    }
+
+    private static void testSummarizingInt(){
+        System.out.println("testSummarizingInt");
+        // 统计各项指标的数据值
+        IntSummaryStatistics summaryStatistics = menu.stream().collect(Collectors.summarizingInt(Dish::getCalories));
+        Optional.of(summaryStatistics).ifPresent(System.out::println);
     }
 }
