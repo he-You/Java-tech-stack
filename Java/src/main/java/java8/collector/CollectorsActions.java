@@ -2,9 +2,7 @@ package java8.collector;
 
 import java8.stream.streamdemo.Dish;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -29,6 +27,10 @@ public class CollectorsActions {
         testAveragingInt();
         testAveragingLong();
         testCollectingAndThen();
+        testCounting();
+        testGroupingByFunction();
+        testGroupingByFunctionAndCollector();
+        testGroupingByFunctionAndSupplierAndCollector();
     }
 
     private static void testAveragingDouble(){
@@ -55,5 +57,36 @@ public class CollectorsActions {
                 Collectors.collectingAndThen(
                         Collectors.averagingInt(Dish::getCalories),a -> "The result is "+a)))
                 .ifPresent(System.out::println);
+        List<Dish> dishList = menu.stream().filter(dish -> dish.getType().equals(Dish.Type.MEAT))
+                // Collections::unmodifiableList -使流处理完后的list不可修改
+                .collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
+        // dishList.add(new Dish("",false,100,Dish.Type.OTHER));
+        System.out.println(dishList);
+    }
+
+    private static void testCounting(){
+        System.out.println("testCounting");
+        Optional.of(menu.stream().collect(Collectors.counting())).ifPresent(System.out::println);
+    }
+    // 分组
+    private static void testGroupingByFunction(){
+        System.out.println("testGroupingByFunction");
+        Optional.of(menu.stream().collect(Collectors.groupingBy(Dish::getType))).ifPresent(System.out::println);
+    }
+
+    private static void testGroupingByFunctionAndCollector(){
+        System.out.println("testGroupingByFunctionAndCollector");
+        // 返回每种类型的的数量
+        Optional.of(menu.stream().collect(Collectors.groupingBy(Dish::getType,Collectors.counting())))
+                .ifPresent(System.out::println);
+    }
+
+    private static void testGroupingByFunctionAndSupplierAndCollector(){
+        System.out.println("testGroupingByFunctionAndSupplierAndCollector");
+        // 包装成指定的map
+        Map<Dish.Type, Double> map = menu.stream()
+                .collect(Collectors.groupingBy(Dish::getType,TreeMap::new, Collectors.averagingInt(Dish::getCalories)));
+        Optional.of(map.getClass()).ifPresent(System.out::println);
+        Optional.of(map).ifPresent(System.out::println);
     }
 }
