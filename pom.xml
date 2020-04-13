@@ -29,6 +29,7 @@
         <module>Algorithm</module>
         <module>MessageQuene</module>
         <module>untitled</module>
+        <module>Zookeeper</module>
     </modules>
 
     <dependencies>

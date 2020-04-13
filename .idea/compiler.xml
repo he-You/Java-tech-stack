@@ -14,6 +14,7 @@
         <module name="ELK" />
         <module name="Redis" />
         <module name="ApiGateway" />
+        <module name="Zookeeper" />
         <module name="job-interview" />
         <module name="MessageQuene" />
         <module name="DataStructure" />
@@ -32,6 +33,7 @@
       <module name="MySQL" options="-parameters" />
       <module name="Redis" options="-parameters" />
       <module name="Spring" options="-parameters" />
+      <module name="Zookeeper" options="-parameters" />
       <module name="job-interview" options="-parameters" />
     </option>
   </component>
