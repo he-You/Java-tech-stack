@@ -30,6 +30,7 @@
         <module>MessageQuene</module>
         <module>untitled</module>
         <module>Zookeeper</module>
+        <module>Niginx</module>
     </modules>
 
     <dependencies>

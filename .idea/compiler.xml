@@ -16,6 +16,7 @@
         <module name="ApiGateway" />
         <module name="Zookeeper" />
         <module name="job-interview" />
+        <module name="Niginx" />
         <module name="MessageQuene" />
         <module name="DataStructure" />
       </profile>
@@ -31,6 +32,7 @@
       <module name="Java" options="-parameters" />
       <module name="MessageQuene" options="-parameters" />
       <module name="MySQL" options="-parameters" />
+      <module name="Niginx" options="-parameters" />
       <module name="Redis" options="-parameters" />
       <module name="Spring" options="-parameters" />
       <module name="Zookeeper" options="-parameters" />
