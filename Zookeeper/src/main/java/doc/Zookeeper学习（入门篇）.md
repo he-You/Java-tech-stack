@@ -45,7 +45,25 @@ CAP即：
 #### 3.如何解决数据一致性问题
 
 ##### 3.1 leader-选举机制
+- **选举阶段 Leader election**
 
+  最大ZXID也就是节点本地的最新事务编号，包含epoch和计数两部分。epoch是纪元的意思，相当于Raft算法选主时候的term，标识当前leader周期，每次选举一个新的Leader服务器后，会生成一个新的epoch
+
+  - 所有节点处于**Looking状态**，各自依次发起投票，投票包含自己的服务器ID和最新事务ID（ZXID）。
+  - 如果发现别人的ZXID比自己大，也就是数据比自己新，那么就重新发起投票，投票给目前已知最大的ZXID所属节点。
+  - 每次投票后，服务器都会统计投票数量，判断是否有某个节点得到**半数以上**的投票。如果存在这样的节点，该节点将会成为准Leader，状态变为Leading。其他节点的状态变为Following。
+
+- **发现阶段 Discovery**
+
+  - 为了防止某些意外情况，比如因网络原因在上一阶段产生多个Leader的情况。
+
+  - Leader集思广益，接收所有Follower发来各自的最新epoch值。Leader从中选出最大的epoch，基于此值加1，生成新的epoch分发给各个Follower。
+
+  - 各个Follower收到全新的epoch后，返回ACK给Leader，带上各自最大的ZXID和历史事务日志。Leader选出最大的ZXID，并更新自身历史日志。
+
+- **同步阶段 Synchronization**
+
+  Leader刚才收集得到的最新历史事务日志，同步给集群中所有的Follower。只有当**半数Follower同步成功**，这个准Leader**才能成为正式的Leader**。
 ##### 3.2 过半机制
 
 ##### 3.3 预提交、收到ack、提交（2pc）
