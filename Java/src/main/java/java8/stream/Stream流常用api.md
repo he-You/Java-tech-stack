@@ -96,6 +96,8 @@ List<String> afterDistinctList = distinctList.stream().distinct().collect(Collec
 - 匹配(Match方法)
 有的时候，我们只需要判断集合中是否全部满足条件，或者判断集合中是否有满足条件的元素，这时候就可以使用match方法：
 1) allMatch：Stream 中全部元素符合传入的 predicate，返回 true
+
+**注：当需要进行allMatch处理的集合为空集合时，allMatch始终返回true**
 2) anyMatch：Stream 中只要有一个元素符合传入的 predicate，返回 true
 3) noneMatch：Stream 中没有一个元素符合传入的 predicate，返回 true
 ### 并行（parallel）程序
