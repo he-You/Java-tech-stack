@@ -150,3 +150,102 @@ BufferedReader bufferedReader = new BufferedReader(reader,1024);
 BufferedWriter bufferedWriter = new BufferedWriter(writer,1024);
 ```
 
+#### 二、NIO
+
+##### 1. 定义
+
+NIO:非阻塞 IO 模型
+
+##### 2. 核心概念
+
+- Buffer
+
+Buffer是一个对象，它包含一些要写入或者读出的数据，在NIO中所有数据都是用缓存区处理的，在读数据的时候要从缓冲区中读，写数据的时候会先写到缓冲区中，缓冲区本质上是一块可以写入数据，然后可以从中读取数据的一个数组，提供了对数据的结构化访问以及在内部维护了读写位置等信息
+
+```
+// 实例化一个 ByteBuffer
+// 创建一个容量为 1024 个 byte 的缓冲区
+ByteBuffer buffer = ByteBuffer.allocate(1024)
+```
+
+如何使用 Buffer:
+
+1. 写入数据到 Buffer
+2. 调用 flip()方法将 Buffer 从写模式切换到读模式
+3. 从 Buffer 中读取数据
+4. 调用 clear()方法或者 compact()方法清空缓冲区，让其可以再次写入
+
+- Channel
+
+  Channel（通道）数据总是从通道读取到缓冲区，或者从缓冲区写入到通道中，Channel只负责运输数据，而操作数据是Buffer
+
+  **通道与流类似，不同地方:**
+
+  （1）在于条通道是双向的，可以同时进行读，写操作，而流是单向流动的，只能写入或者读取
+
+  （2）流的读写是阻塞的，通道可以异步读写
+
+  数据从Channel读到Buffer
+
+  ```
+  inChannel.read(buffer);
+  ```
+
+  数据从Buffer写到Channel
+
+  ```
+  outChannel.write(buffer);
+  ```
+
+  **以复制文件为例**
+
+  ```java
+  FileInputStream fileInputStream=new FileInputStream(new File(src));
+  FileOutputStream fileOutputStream=new FileOutputStream(new File(dst));
+  //获取输入输出channel通道
+  FileChannel inChannel=fileInputStream.getChannel();
+  FileChannel outChannel=fileOutputStream.getChannel();
+  //创建容量为1024个byte的buffer
+  ByteBuffer buffer=ByteBuffer.allocate(1024);
+  while(true){
+             //从inChannel里读数据，如果读不到字节了就返回-1，文件就读完了
+             int eof =inChannel.read(buffer);
+             if(eof==-1){break;}
+            //将Buffer从写模式切换到读模式
+            buffer.flip();
+           //开始往outChannel写数据
+            outChannel.write(buffer);
+          //清空buffer
+           buffer.clear();
+  }
+  inChannel.close();
+  outChannel.close();
+  fileInputStream.close();
+  fileOutputStream.close();
+  ```
+
+  - **Selector**（多路复用选择器）
+
+  Selector是NIO编程的基础，主要作用就是将多个Channel注册到Selector上，如果Channel上发生读或写事件，Channel就处于就绪状态，就会被Selector轮询出来，然后通过SelectionKey就可以获取到已经就绪的Channel集合，进行IO操作了
+
+  Selector与Channel，Buffer之间的关系
+![](../img/Selector.png)
+ 
+  
+  ##### 3 .NIO 模型
+
+  
+
+  JDK中NIO使用多路复用的IO模型，通过把多个IO阻塞复用到一个select的阻塞上，实现系统在单线程中可以同时处理多个客户端请求，节省系统开销，在JDK1.4和1.5 update10版本之前，JDK的Selector基于select/poll模型实现，在JDK 1.5 update10以上的版本，底层使用epoll代替了select/poll
+
+  epoll较select/poll的优点在于：
+
+  （1）epoll支持打开的文件描述符数量不在受限制，select/poll可以打开的文件描述符数量有限
+
+  （2）select/poll使用轮询方式遍历整个文件描述符的集合，epoll基于每个文件描述符的callback函数回调
+
+  **select，poll，epoll**都是IO多路复用的机制。I/O多路复用就是通过一种机制，一个进程可以监视多个描述符，一旦某个描述符就绪（一般是读就绪或者写就绪），能够通知程序进行相应的读写操作。但select，poll，epoll本质上都是同步I/O，因为他们都需要在读写事件就绪后自己负责进行读写，也就是说这个读写过程是阻塞的，而异步I/O则无需自己负责进行读写
+
+  NIO提供了两套不同的套接字通道实现网络编程，服务端：ServerSocketChannel和客户端SocketChannel，两种通道都支持阻塞和非阻塞模式
+
+使用原生NIO类库十分复杂，NIO的类库和Api繁杂，使用麻烦，需要对网络编程十分熟悉，才能编写出高质量的NIO程序，所以并不建议直接使用原生NIO进行网络编程，而是使用一些成熟的框架，比如Netty
