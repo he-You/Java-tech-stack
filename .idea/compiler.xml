@@ -7,7 +7,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="DataStructure" />
         <module name="Spring" />
         <module name="MySQL" />
         <module name="Java" />
@@ -17,8 +16,9 @@
         <module name="ApiGateway" />
         <module name="Zookeeper" />
         <module name="job-interview" />
-        <module name="MessageQuene" />
         <module name="Niginx" />
+        <module name="MessageQuene" />
+        <module name="DataStructure" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
