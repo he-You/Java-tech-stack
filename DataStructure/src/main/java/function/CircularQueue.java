@@ -26,6 +26,7 @@ public class CircularQueue {
      * @throws Exception 抛出异常
      */
     public void enQueue(int element) throws Exception{
+        // (队尾下标+1)%数组长度 = 队头下标-->队列已满
         if((rear+1)%array.length == front){
             throw new Exception("队列已满");
         }
