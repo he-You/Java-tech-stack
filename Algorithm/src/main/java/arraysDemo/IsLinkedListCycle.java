@@ -1,4 +1,4 @@
-package ArraysDemo;
+package arraysDemo;
 
 /**
  * 判断链表是否出现闭环:

@@ -1,4 +1,4 @@
-package ArraysDemo;
+package arraysDemo;
 
 /**
  * 判断链表是否有环，如果有计算环的长度
