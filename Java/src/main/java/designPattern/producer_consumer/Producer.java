@@ -2,6 +2,7 @@ package designPattern.producer_consumer;
 
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -31,6 +32,12 @@ public class Producer implements Runnable {
         try{
             while (isRunning){
                 Thread.sleep(random.nextInt(SLEEPTIME));
+                // 构造任务数据
+                data = new PCData(count.incrementAndGet());
+                System.out.println(data+"is put into queue");
+                if (!queue.offer(data,2, TimeUnit.SECONDS)){
+                    System.err.println("failed to put data:"+data);
+                }
             }
         } catch (InterruptedException e){
             e.printStackTrace();
