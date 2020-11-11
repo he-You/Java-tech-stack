@@ -14,6 +14,10 @@ public class PCData {
         intData = Integer.valueOf(d);
     }
 
+    public int getData(){
+        return intData;
+    }
+
     @Override
     public String toString() {
         return "PCData{" +
