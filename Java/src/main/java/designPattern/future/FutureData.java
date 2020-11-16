@@ -16,7 +16,9 @@ public class FutureData implements Data{
         isReady = true;
         notifyAll();
     }
-    public synchronized String getReasult(){
+
+    @Override
+    public synchronized String getResult() {
         while(!isReady){
             try{
                 wait();
@@ -25,9 +27,5 @@ public class FutureData implements Data{
             }
         }
         return realData.getResult();
-    }
-    @Override
-    public String getResult() {
-        return null;
     }
 }
