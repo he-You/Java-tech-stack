@@ -4,13 +4,13 @@
 
 ```Java
    /**
-     * Sets the current thread's copy of this thread-local variable
+     * Sets the current concurrent.thread's copy of this concurrent.thread-local variable
      * to the specified value.  Most subclasses will have no need to
      * override this method, relying solely on the {@link #initialValue}
-     * method to set the values of thread-locals.
+     * method to set the values of concurrent.thread-locals.
      *
-     * @param value the value to be stored in the current thread's copy of
-     *        this thread-local.
+     * @param value the value to be stored in the current concurrent.thread's copy of
+     *        this concurrent.thread-local.
      */
     public void set(T value) {
         Thread t = Thread.currentThread();
@@ -32,12 +32,12 @@
 
 ```Java
    /**
-     * Returns the value in the current thread's copy of this
-     * thread-local variable.  If the variable has no value for the
-     * current thread, it is first initialized to the value returned
+     * Returns the value in the current concurrent.thread's copy of this
+     * concurrent.thread-local variable.  If the variable has no value for the
+     * current concurrent.thread, it is first initialized to the value returned
      * by an invocation of the {@link #initialValue} method.
      *
-     * @return the current thread's value of this thread-local
+     * @return the current concurrent.thread's value of this concurrent.thread-local
      */
     public T get() {
         Thread t = Thread.currentThread();

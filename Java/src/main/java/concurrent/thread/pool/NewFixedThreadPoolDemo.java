@@ -1,6 +1,5 @@
-package thread.pool;
+package concurrent.thread.pool;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

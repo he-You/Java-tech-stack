@@ -68,7 +68,7 @@ boolean casNext(Node<E> cmp, Node<E> val){
                         casTail(t, newNode);  // Failure is OK.
                     return true;
                 }
-                // Lost CAS race to another thread; re-read next
+                // Lost CAS race to another concurrent.thread; re-read next
             }
             else if (p == q)
                 // We have fallen off list.  If tail is unchanged, it

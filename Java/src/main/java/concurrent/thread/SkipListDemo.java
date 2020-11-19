@@ -1,4 +1,4 @@
-package thread;
+package concurrent.thread;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentSkipListMap;
