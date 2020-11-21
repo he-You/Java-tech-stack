@@ -12,7 +12,9 @@ package concurrent;
 public class OddEvenSort {
     // 串行实现
     public static void oddEvenSort(int[] arr){
+        // 是否发生数据交换
         int exchFlag = 1;
+        // 当前交换是奇交换还是偶交换
         int start = 0;
         while (exchFlag == 1 || start == 1){
             exchFlag = 0;
