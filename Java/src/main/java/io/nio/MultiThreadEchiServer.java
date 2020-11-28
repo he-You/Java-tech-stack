@@ -27,13 +27,9 @@ public class MultiThreadEchiServer {
 
         @Override
         public void run() {
-            BufferedReader is = null;
-            PrintWriter os = null;
-            try {
-                is = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
-                os = new PrintWriter(socketClient.getOutputStream(), true);
+            try (BufferedReader is = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+                 PrintWriter os = new PrintWriter(socketClient.getOutputStream(), true)) {
                 // 从 InputStream当中读取客户端所发送的数据;
-
                 String inputLine = null;
                 long b = System.currentTimeMillis();
                 while ((inputLine = is.readLine()) != null) {
@@ -43,18 +39,6 @@ public class MultiThreadEchiServer {
                 System.out.println("spend:" + (e - b) + "ms");
             } catch (IOException e) {
                 e.printStackTrace();
-            } finally {
-
-                try {
-                    if (is != null) {
-                        is.close();
-                    }
-                    if (os != null) {
-                        os.close();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         }
     }
@@ -67,10 +51,10 @@ public class MultiThreadEchiServer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        while(true){
+        while (true) {
             try {
                 clientSocket = echoServer.accept();
-                System.out.println(clientSocket.getRemoteSocketAddress()+"connect!");
+                System.out.println(clientSocket.getRemoteSocketAddress() + "connect!");
                 executorService.execute(new HandleMsg(clientSocket));
             } catch (IOException e) {
                 e.printStackTrace();
