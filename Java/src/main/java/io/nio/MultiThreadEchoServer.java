@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
  * @author heyou(heyou_0423 @ 163.com)
  * @date 2020/11/26 22:32
  */
-public class MultiThreadEchiServer {
+public class MultiThreadEchoServer {
     private static ExecutorService executorService = Executors.newCachedThreadPool();
 
     static class HandleMsg implements Runnable {
