@@ -18,17 +18,15 @@ import java.util.concurrent.locks.LockSupport;
  */
 public class MultiThreadSocketClient {
     private static ExecutorService executorService = Executors.newCachedThreadPool();
-    private static final int SLEEP_TIME = 1000*1000*1000;
-    public static class EchoClient implements Runnable{
+    private static final int SLEEP_TIME = 1000 * 1000 * 1000;
+
+    public static class EchoClient implements Runnable {
         @Override
         public void run() {
-            Socket client = null;
-            PrintWriter writer = null;
-            BufferedReader reader = null;
-            client = new Socket();
-            try {
-                client.connect(new InetSocketAddress("localhost",8000));
-                writer = new PrintWriter(client.getOutputStream(),true);
+            try (Socket client = new Socket();
+                 PrintWriter writer = new PrintWriter(client.getOutputStream(), true);
+                 BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));) {
+                client.connect(new InetSocketAddress("localhost", 8000));
                 writer.println("H");
                 LockSupport.parkNanos(SLEEP_TIME);
                 writer.println("e");
@@ -43,27 +41,10 @@ public class MultiThreadSocketClient {
                 LockSupport.parkNanos(SLEEP_TIME);
                 writer.println();
                 writer.flush();
-
-                reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                System.out.println("from server: "+reader.readLine());
+                System.out.println("from server: " + reader.readLine());
             } catch (IOException e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    if (writer!=null){
-                        writer.close();
-                    }
-                    if (reader!=null){
-                        reader.close();
-                    }
-                    if (client!=null){
-                        client.close();
-                    }
-                } catch (IOException e){
-
-                }
             }
-
         }
     }
 
