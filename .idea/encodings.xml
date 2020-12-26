@@ -2,19 +2,25 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Algorithm" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Algorithm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ApiGateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ApiGateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DataStructure" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DataStructure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ELK" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ELK/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Java/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MessageQuene" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MessageQuene/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MySQL" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Niginx" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Niginx/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Redis" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Redis/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Zookeeper" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Zookeeper/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/job-interview" charset="UTF-8" />
   </component>
