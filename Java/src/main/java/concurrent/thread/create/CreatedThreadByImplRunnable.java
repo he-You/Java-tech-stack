@@ -1,4 +1,4 @@
-package concurrent.thread;
+package concurrent.thread.create;
 
 /**
  * 通过实现 Runnable 创建线程

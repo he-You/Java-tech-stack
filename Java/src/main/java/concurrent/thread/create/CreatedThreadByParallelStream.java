@@ -1,4 +1,4 @@
-package concurrent.thread;
+package concurrent.thread.create;
 
 import java.util.Arrays;
 import java.util.List;

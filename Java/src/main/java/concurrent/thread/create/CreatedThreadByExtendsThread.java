@@ -1,4 +1,4 @@
-package concurrent.thread;
+package concurrent.thread.create;
 
 /**
  * @author heyou(heyou_0423 @ 163.com)

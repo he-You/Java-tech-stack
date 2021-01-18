@@ -1,4 +1,4 @@
-package concurrent.thread;
+package concurrent.thread.create;
 
 /**
  * 通过继承 Thread匿名内部类创建线程
