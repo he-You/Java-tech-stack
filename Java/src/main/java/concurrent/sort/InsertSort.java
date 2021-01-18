@@ -1,4 +1,4 @@
-package concurrent;
+package concurrent.sort;
 
 /**
  * 插入排序：将未排序的数组（或链表）拆成两部分，前半部分是已排序的，后半部分是未排序的。

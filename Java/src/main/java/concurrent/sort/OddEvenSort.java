@@ -1,4 +1,4 @@
-package concurrent;
+package concurrent.sort;
 
 /**
  * 奇偶交换排序：奇交换和偶交换

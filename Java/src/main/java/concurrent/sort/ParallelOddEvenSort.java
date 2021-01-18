@@ -1,4 +1,4 @@
-package concurrent;
+package concurrent.sort;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
