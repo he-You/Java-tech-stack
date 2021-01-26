@@ -6,6 +6,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * 通常用于线程等待，它可以让某个线程一直等待直到倒计数结束，再开始执行。
+ *
  * @author heyou(heyou_0423 @ 163.com)
  * @date 2021/1/26 下午10:56
  */
