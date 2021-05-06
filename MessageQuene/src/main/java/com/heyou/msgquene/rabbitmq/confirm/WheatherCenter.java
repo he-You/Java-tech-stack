@@ -28,7 +28,7 @@ public class WheatherCenter {
 
             @Override
             public void handleNack(long l, boolean b) throws IOException {
-                System.out.println("消息已被Broker拒收,Tag:" + l);
+                System.out.println("消息已被Broker拒收,Tag: " + l);
             }
         });
         channel.addReturnListener(new ReturnCallback() {
