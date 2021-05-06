@@ -6,6 +6,7 @@ package com.heyou.msgquene.rabbitmq;
  */
 public interface RabbitConstant {
     String EXCHANGE_WEATHER = "exchange_weather";
+
     String EXCHANGE_WEATHER_ROUTING = "exchange_weather_routing";
     String EXCHANGE_WEATHER_TOPIC = "exchange_weather_topic";
     String QUEUE_SINA = "queue_sina";
