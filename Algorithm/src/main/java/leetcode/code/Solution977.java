@@ -4,7 +4,7 @@ package leetcode.code;
  * @author heyou
  * @date 2023-08-07 14:11
  */
-public class Soluation977 {
+public class Solution977 {
     public static int[] sortedSquares(int[] nums) {
         // 双指针
         int l =0;
