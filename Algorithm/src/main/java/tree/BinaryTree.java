@@ -5,6 +5,7 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author heyou
@@ -63,6 +64,40 @@ public class BinaryTree {
         result.addAll(midTraversal(treeNode.left));
         result.add(treeNode.val);
         result.addAll(midTraversal(treeNode.right));
+        return result;
+    }
+
+    /**
+     * 中序遍历：左->根->右
+     *
+     * @param treeNode
+     * @return
+     */
+    public static List<Integer> midTraversal2(TreeNode root) {
+
+        List<Integer> result = new ArrayList<>();
+        //退出条件
+        //root节点为空
+        if (null == root) {
+            return result;
+        }
+        // 定义栈
+        Stack<TreeNode> stack = new Stack<>();
+        // 定义遍历指针
+        TreeNode cur = root;
+        // 开启循环
+        while (cur != null || !stack.isEmpty()) {
+            // 遍历
+            if (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            } else {
+                //
+                cur = stack.pop();
+                result.add(cur.val);
+                cur = cur.right;
+            }
+        }
         return result;
     }
 
@@ -219,9 +254,9 @@ public class BinaryTree {
         right.setLeft(leftChild);
         treeNode.setRight(right);
 
-        List<List<Integer>> lists = levelTravelsal(treeNode);
-
-        System.out.println(lists);
+//        List<List<Integer>> lists = levelTravelsal(treeNode);
+        List<Integer> integers = midTraversal2(treeNode);
+        System.out.println(integers);
     }
 
 }
